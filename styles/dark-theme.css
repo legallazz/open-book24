@@ -1,0 +1,164 @@
+/* Dark theme variables */
+:root {
+  --primary-color: #60a5fa;
+  --primary-hover: #3b82f6;
+  --secondary-color: #9ca3af;
+  --success-color: #34d399;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
+
+  --background-primary: #111827;
+  --background-secondary: #1f2937;
+  --background-tertiary: #374151;
+
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+
+  --border-color: #374151;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3),
+    0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3),
+    0 8px 10px -6px rgb(0 0 0 / 0.3);
+}
+
+/* Dark theme specific styles */
+body {
+background: linear-gradient(177deg, #18202d 0%, #1e2639 100%);
+  color: var(--text-primary);
+}
+
+
+/* Theme toggle icons */
+.sun-icon {
+  display: none;
+}
+
+.moon-icon {
+  display: block;
+}
+
+/* Header styles for dark theme */
+.header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #581c87 100%);
+}
+
+.compact-header {
+    /*background-color: #5a4fcf;*/
+    /*background-image: linear-gradient(349deg, #5a4fcf -10%, #1e243b 88%);*/
+  background: linear-gradient(255deg,#5a4fcf,#1e243b);
+  background-size: 120% 120%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+/* Main content styles for dark theme */
+.main {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Search bar styles for dark theme */
+.search-bar input {
+  background-color: var(--background-secondary);
+  border-color: var(--border-color);
+}
+
+.search-bar input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgb(96 165 250 / 0.1);
+}
+
+/* Reading-specific dark theme adjustments */
+.reading-area {
+  background-color: var(--reader-background, var(--background-secondary));
+}
+
+.book-content {
+  background-color: var(--reader-page, var(--background-primary));
+  color: var(--reader-text, var(--text-primary));
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-secondary: #000000;
+  }
+}
+
+.book-author {
+  color: #e9e3e3;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.reading-menu {
+    background-color: #5a4fcf;
+    background-image: linear-gradient(315deg, #5a4fcf 0%, #1e243b 74%);
+}
+
+.book-nav {
+  box-shadow: 0px 0px 15px 0px rgb(25 42 55);
+  background-color: #5a4fcf;
+  background-image: linear-gradient(315deg, #5a4fcf 0%, #1e243b 74%);
+  /* background: linear-gradient(90deg, #3f2b96 0%, #a8c0ff 100%); */
+}
+
+.back-btn:hover {
+  color: #fff;
+  background-color: #6158c5;
+}
+
+
+
+
+.audio-section {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+
+
+.compact-book-card {
+  background: #262e3c;
+}
+
+.compact-book-status {
+  background: linear-gradient(135deg, #536177 0%, #212f4e 100%);
+  color: #ffffff;
+}
+
+.progress-bar {
+  background-color: #495568;
+}
+
+
+.audio-player {
+    background: linear-gradient(135deg, var(--background-secondary) 0%, #252f45 100%);
+    border: 1px solid var(--border-color);
+}
+
+
+

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ежевичная зима - Цифровая Библиотека</title>
+    <meta name="description" content="Читайте книгу Ежевичная зима от Сара Джио онлайн с настройкой цветов и темы для комфортного чтения.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/book-reader.css">
+    <link rel="stylesheet" href="/styles/audio-player.css">
+    <link rel="stylesheet" href="/styles/themes.css">
+</head>
+
+<body data-book-id="ezhevichnaya_zima">
+    <!-- Main Book Interface -->
+    <main class="book-main">
+        <!-- Book Header -->
+        <header class="book-header">
+            <div class="book-header-content">
+                <!-- Back Button -->
+                <button onclick="window.history.back()" class="back-btn" aria-label="Назад">
+                    <i class="fas fa-arrow-left"></i>
+                    Назад
+                </button>
+
+                <!-- Book Info -->
+                <div class="book-header-info">
+                    <h1 class="book-title-large">Ежевичная зима</h1>
+                    <p class="book-author-large">Сара Джио</p>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="book-header-actions">
+                    <button id="theme-toggle" class="compact-theme-toggle" aria-label="Переключить тему">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Book Content Area -->
+        <section class="book-content-section">
+            <!-- Book Cover and Info -->
+            <div class="book-info-card">
+                <div class="book-cover-container">
+                    <img id="book-poster" src="/books-pack/ezhevichnaya_zima/images/poster.jpg" alt="Ежевичная зима - обложка книги" class="book-cover-large">
+                    <div class="book-badges">
+                        <span class="age-rating-badge">16+</span>
+                    </div>
+                </div>
+                
+                <div class="book-details">
+                    <div class="book-meta">
+                        <h2 class="book-title-large">Ежевичная зима</h2>
+                        <p class="book-author-large">Сара Джио</p>
+                        <p class="book-description-large">
+                            Атмосферный роман в жанре женской прозы с элементами тайны и исторической драмы. 
+                            Действие разворачивается на ежевичной ферме в штате Вашингтон, где главная героиня, 
+                            молодая журналистка Элли Маккалоу, приезжает, чтобы написать статью о загадочной смерти девушки.
+                        </p>
+                    </div>
+
+                    <!-- Reading Actions -->
+                    <div class="book-actions">
+                        <button id="start-reading" class="btn-primary large">
+                            <i class="fas fa-book-open"></i>
+                            Начать чтение
+                        </button>
+                        
+                        <button id="continue-reading" class="btn-secondary large" style="display: none;">
+                            <i class="fas fa-bookmark"></i>
+                            Продолжить чтение
+                        </button>
+
+                        <button id="reading-color-settings" class="action-btn">
+                            <i class="fas fa-palette"></i>
+                            Настроить цвета
+                        </button>
+
+                        <button onclick="downloadBook('ezhevichnaya_zima')" class="action-btn download-book-btn">
+                            <i class="fas fa-download"></i>
+                            Скачать книгу
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="audio-player" id="audio-player">
+                <div class="audio-info">
+                    <h3>Аудиокнига: Ежевичная зима</h3>
+                    <p>Слушайте книгу в удобное время</p>
+                </div>
+
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <button class="control-btn" id="prev-track-btn" aria-label="Предыдущий трек">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    
+                    <button class="control-btn play-pause" id="play-pause-btn" aria-label="Воспроизведение/Пауза">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    
+                    <button class="control-btn" id="next-track-btn" aria-label="Следующий трек">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <div class="time-display">
+                        <div class="current-track-info">Глава 1</div>
+                        <div class="time-info">
+                            <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar-audio">
+                            <div class="progress-handle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Volume Control -->
+                <div class="volume-control">
+                    <div class="volume-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <div class="volume-slider-container">
+                        <div class="volume-level"></div>
+                        <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="70">
+                    </div>
+                    <div class="volume-value">70</div>
+                </div>
+
+                <!-- Speed Control -->
+                <div class="speed-control">
+                    <button class="speed-btn" data-speed="0.75">0.75x</button>
+                    <button class="speed-btn active" data-speed="1">1x</button>
+                    <button class="speed-btn" data-speed="1.25">1.25x</button>
+                    <button class="speed-btn" data-speed="1.5">1.5x</button>
+                    <button class="speed-btn" data-speed="2">2x</button>
+                </div>
+
+                <!-- Track List -->
+                <div class="track-list">
+                    <!-- Tracks will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reading Modal -->
+    <div id="reading-modal" class="reading-modal">
+        <div class="reading-interface">
+            <!-- Reading Header -->
+            <header class="reading-header">
+                <div class="reading-nav">
+                    <button id="exit-reading" class="action-btn">
+                        <i class="fas fa-times"></i>
+                        Закрыть
+                    </button>
+                    
+                    <h2 class="book-nav-title">Ежевичная зима</h2>
+                </div>
+
+                <div class="reading-controls-header">
+                    <!-- Reading Mode Controls -->
+                    <div id="reading-mode-controls" class="reading-mode-controls">
+                        <button id="scroll-mode" class="mode-btn active">
+                            <i class="fas fa-scroll"></i>
+                            Прокрутка
+                        </button>
+                        <button id="page-mode" class="mode-btn">
+                            <i class="fas fa-book-open"></i>
+                            Постранично
+                        </button>
+                    </div>
+
+                    <button id="customize-colors" class="action-btn">
+                        <i class="fas fa-palette"></i>
+                        Цвета
+                    </button>
+                </div>
+            </header>
+
+            <!-- Reading Area -->
+            <div class="reading-area">
+                <div id="book-content" class="book-content scroll-mode">
+                    <p class="loading-message">Нажмите "Начать чтение" чтобы загрузить содержимое книги.</p>
+                </div>
+            </div>
+
+            <!-- Reading Controls (Page Mode Only) -->
+            <div id="reading-controls" class="reading-controls">
+                <div class="pagination-controls">
+                    <button id="prev-page" class="page-nav-btn" aria-label="Предыдущая страница">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="page-info">
+                        Страница <span id="current-page">1</span> из <span id="total-pages">1</span>
+                    </div>
+                    
+                    <button id="next-page" class="page-nav-btn" aria-label="Следующая страница">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="reading-progress">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div id="progress-text" class="progress-text">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Color Customization Modal -->
+    <div id="color-modal" class="color-modal">
+        <div class="color-modal-content">
+            <div class="color-modal-header">
+                <h3 class="color-modal-title">Настройка цветов для чтения</h3>
+                <button id="close-color-modal" class="modal-close-btn" aria-label="Закрыть">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Reading Preview -->
+            <div class="reading-preview">
+                <h4 class="preview-title">Предварительный просмотр</h4>
+                <p class="preview-text">
+                    Так будет выглядеть текст книги с выбранными цветами. 
+                    Настройте цвета по своему вкусу для комфортного чтения.
+                </p>
+            </div>
+
+            <!-- Theme Presets -->
+            <div class="color-group">
+                <h4 class="color-group-title">Готовые темы</h4>
+                <div class="theme-presets">
+                    <div class="theme-preset" data-theme="light">
+                        <div class="theme-preset-name">Светлая</div>
+                        <div class="theme-preview">
+                            <div class="theme-preview-bg" style="background: #f8fafc;"></div>
+                            <div class="theme-preview-page" style="background: #ffffff;"></div>
+                            <div class="theme-preview-text" style="background: #1f2937;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-preset" data-theme="warm">
+                        <div class="theme-preset-name">Теплая</div>
+                        <div class="theme-preview">
+                            <div class="theme-preview-bg" style="background: #fdf2f8;"></div>
+                            <div class="theme-preview-page" style="background: #fefce8;"></div>
+                            <div class="theme-preview-text" style="background: #374151;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-preset" data-theme="sepia">
+                        <div class="theme-preset-name">Сепия</div>
+                        <div class="theme-preview">
+                            <div class="theme-preview-bg" style="background: #f7f3e7;"></div>
+                            <div class="theme-preview-page" style="background: #faf7eb;"></div>
+                            <div class="theme-preview-text" style="background: #4b5563;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-preset" data-theme="dark">
+                        <div class="theme-preset-name">Темная</div>
+                        <div class="theme-preview">
+                            <div class="theme-preview-bg" style="background: #0f172a;"></div>
+                            <div class="theme-preview-page" style="background: #1e293b;"></div>
+                            <div class="theme-preview-text" style="background: #f8fafc;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Colors -->
+            <div class="color-group">
+                <h4 class="color-group-title">Фон области чтения</h4>
+                <div class="color-picker-row">
+                    <input type="color" id="background-color-picker" class="color-picker-input" value="#f8fafc">
+                    <div id="background-presets" class="color-presets">
+                        <div class="color-preset" data-color="#f8fafc" style="background: #f8fafc;"></div>
+                        <div class="color-preset" data-color="#fdf2f8" style="background: #fdf2f8;"></div>
+                        <div class="color-preset" data-color="#f0fdf4" style="background: #f0fdf4;"></div>
+                        <div class="color-preset" data-color="#f0f9ff" style="background: #f0f9ff;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-group">
+                <h4 class="color-group-title">Фон страницы</h4>
+                <div class="color-picker-row">
+                    <input type="color" id="page-color-picker" class="color-picker-input" value="#ffffff">
+                    <div id="page-presets" class="color-presets">
+                        <div class="color-preset" data-color="#ffffff" style="background: #ffffff;"></div>
+                        <div class="color-preset" data-color="#fefce8" style="background: #fefce8;"></div>
+                        <div class="color-preset" data-color="#f7fee7" style="background: #f7fee7;"></div>
+                        <div class="color-preset" data-color="#eff6ff" style="background: #eff6ff;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-group">
+                <h4 class="color-group-title">Цвет текста</h4>
+                <div class="color-picker-row">
+                    <input type="color" id="text-color-picker" class="color-picker-input" value="#1f2937">
+                    <div id="text-presets" class="color-presets">
+                        <div class="color-preset" data-color="#1f2937" style="background: #1f2937;"></div>
+                        <div class="color-preset" data-color="#374151" style="background: #374151;"></div>
+                        <div class="color-preset" data-color="#4b5563" style="background: #4b5563;"></div>
+                        <div class="color-preset" data-color="#6b7280" style="background: #6b7280;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Actions -->
+            <div class="modal-actions">
+                <button id="reset-colors" class="btn-secondary">
+                    <i class="fas fa-undo"></i>
+                    Сброс
+                </button>
+                <button id="apply-colors" class="btn-primary">
+                    <i class="fas fa-check"></i>
+                    Применить
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/file-scanner.js"></script>
+    <script src="/js/book-config.js"></script>
+    <script src="/js/book-loader.js"></script>
+    <script src="/js/color-customizer.js"></script>
+    <script src="/js/reader.js"></script>
+    <script src="/js/audio-player.js"></script>
+    <script src="/js/theme.js"></script>
+
+    <style>
+        /* Book-specific styles */
+        .book-main {
+            min-height: 100vh;
+            background: var(--background-primary);
+            padding: 2rem;
+        }
+
+        .book-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .book-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .book-header-info {
+            flex: 1;
+            text-align: center;
+        }
+
+        .book-title-large {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-author-large {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .book-content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .book-info-card {
+            background: var(--background-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .book-cover-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .book-cover-large {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .book-badges {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .age-rating-badge {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .book-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-meta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-meta p.book-author-large {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .book-meta p.book-description-large {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-primary.large, .btn-secondary.large {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .download-book-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-book-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .download-book-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-book-btn.downloading {
+            animation: downloadPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes downloadPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .book-main {
+                padding: 1rem;
+            }
+
+            .book-header {
+                padding: 1.5rem;
+            }
+
+            .book-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .book-title-large {
+                font-size: 2rem;
+            }
+
+            .book-info-card {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .book-cover-large {
+                width: 100%;
+                max-width: 250px;
+                height: 300px;
+                margin: 0 auto;
+            }
+
+            .book-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

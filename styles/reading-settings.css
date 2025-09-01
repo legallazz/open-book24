@@ -1,0 +1,479 @@
+/* Боковая панель настроек */
+.settings-sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: var(--background-primary);
+  border-left: 1px solid var(--border-color);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+}
+
+.settings-sidebar.open {
+  z-index: 999999 !important;
+  right: 0;
+}
+
+.settings-header {
+  height: 74.5px;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background-secondary);
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.settings-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.settings-close:hover {
+  background: var(--background-tertiary);
+}
+
+.settings-content {
+  padding: 1rem;
+}
+
+.reading-preview {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--reader-page);
+  color: var(--reader-text);
+  font-size: 0.9rem;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+.settings-group {
+  display: flex;
+  margin-bottom: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+}
+.settings-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-color);
+  background: var(--background-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-icon.small {
+  width: 28px;
+  height: 28px;
+}
+
+.btn-icon:hover {
+  background: var(--background-tertiary);
+}
+
+.btn-icon.active {
+  background: var(--primary-color);
+  color: white !important;
+  border-color: var(--primary-color);
+}
+
+.settings-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--background-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.settings-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.theme-preset {
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.theme-preset:hover {
+  background: var(--background-secondary);
+}
+
+.theme-preset.active {
+  background: var(--primary-color);
+}
+
+.theme-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.theme-preset.active .theme-dot {
+  border-color: white;
+  transform: scale(1.1);
+}
+
+.theme-preset:hover .theme-dot {
+  transform: scale(1.15);
+}
+
+/* Анимация перелистывания страницы */
+.page-turn {
+  animation: pageTurn 0.4s ease-out;
+}
+
+@keyframes pageTurn {
+  0% {
+    opacity: 0.7;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Режимы чтения */
+.book-content.page-mode {
+  height: calc(100vh - 200px) !important;
+  overflow: hidden !important;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.book-content.scroll-mode {
+  height: auto !important;
+  overflow-y: auto !important;
+}
+
+.reading-content.page-mode {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Навигация по страницам */
+.reading-controls {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--background-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: var(--background-tertiary);
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  min-width: 60px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .settings-sidebar {
+    width: 280px;
+  }
+
+  .themes-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .reading-controls {
+    bottom: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Стили для кнопки настроек в меню чтения */
+.menu-btn.settings-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-btn.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Стили для выравнивания текста */
+.book-content.text-left {
+  text-align: left !important;
+}
+
+.book-content.text-justify {
+  text-align: justify !important;
+}
+
+.book-content p {
+  text-align: inherit;
+  margin-bottom: 1.5rem;
+}
+
+.book-content.page-mode {
+  margin-top: 60px;
+}
+
+
+
+
+
+/* Стили для слайдера */
+.book-content.page-mode {
+  height: calc(100vh - 200px);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.book-content .chapter {
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 250px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Индикатор страниц */
+.page-indicator {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  z-index: 100;
+}
+
+/* Анимация перелистывания */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.page-turn-next {
+  animation: slideInFromRight 0.3s ease;
+}
+
+.page-turn-prev {
+  animation: slideInFromLeft 0.3s ease;
+}
+
+
+
+
+
+
+
+/* Исправление цвета иконки в активной кнопке */
+.mode-btn.active i,
+.btn-icon.active i {
+  color: inherit !important; /* Наследует цвет от родителя */
+}
+
+/* Конкретно для иконки файла */
+.mode-btn.active .fa-file-alt {
+  color: white !important;
+}
+
+/* Убедитесь, что активные кнопки имеют правильные стили */
+.mode-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.btn-icon.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Принудительно устанавливаем цвет для SVG иконок */
+.mode-btn.active svg,
+.btn-icon.active svg {
+  fill: white !important;
+  color: white !important;
+}
+
+
+
+
+
+
+
+
+/* Постраничный режим */
+.book-content.page-mode {
+  width: 100%;
+  height: calc(100vh - 200px);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.book-content.page-mode .chapter {
+  display: inline-block;
+  width: 100vw;
+  height: 100%;
+  vertical-align: top;
+  white-space: normal;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Индикатор страниц */
+.page-info {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+/* Стрелки навигации */
+.nav-arrows {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.nav-arrow {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background 0.2s ease;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}

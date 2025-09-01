@@ -1,0 +1,176 @@
+/* Light theme variables */
+:root {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary-color: #6b7280;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
+  --background-primary: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Light theme specific styles */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--text-primary);
+}
+
+.back-btn:hover {
+    color: #2f304c;
+    background-color: #ffffff;
+}
+
+
+.book-title-large {
+    color: #3c3e40;
+}
+
+.compact-header {
+      /*background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+  background: linear-gradient(56deg,#667eea,#764ba2);
+  background-size: 120% 120%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.book-description {
+    color: #eee;
+}
+
+.book-author {
+    color: #e9e3e3;
+}
+
+.book-title {
+    color: #fff;
+}
+
+
+.reading-menu {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Theme toggle icons */
+.sun-icon {
+  display: block;
+}
+
+.moon-icon {
+  display: none;
+}
+
+/* Header styles for light theme */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.book-nav {
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Main content styles for light theme */
+.main {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Search bar styles for light theme */
+.search-bar input {
+  background-color: var(--background-primary);
+  border-color: var(--border-color);
+}
+
+.search-bar input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+
+.book-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.book-author {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+
+.book-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+
+.compact-book-card {
+    background: #ffffff;
+}
+
+
+.book-header {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+
+
+.compact-book-status {
+    background: linear-gradient(106deg, #8d96da 0%, #6e5fca 100%);
+    /* background: #8cd0e9; */
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+color: #fff;
+}
+
+
+.chapter-item.active .chapter-number, .chapter-item.active .chapter-duration {
+    color: #000000;
+}
+
+
+
+/* Стили для регулятора громкости в светлой теме */
+.volume-controls {
+    background: rgb(218 226 237) !important;
+}
+
+.volume-slider {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  background: var(--primary-color) !important;
+}
+
+.volume-slider::-moz-range-thumb {
+  background: var(--primary-color) !important;
+}
